@@ -1,0 +1,19 @@
+<craftsjs-card>
+  <card-header>
+    <card-header-oval>
+      <card-title>
+        <mat-icon suffix>library_books</mat-icon>
+        <h4>{{'clientInfo.title' | translate}}</h4>
+      </card-title>
+    </card-header-oval>
+    <card-header-subtitle>
+      <button type="button" color="accent" mat-raised-button (click)="createClientInfo()">
+        <mat-icon suffix>add</mat-icon>
+        {{'clientInfo.create' | translate}}
+      </button>
+    </card-header-subtitle>
+  </card-header>
+  <card-body>
+    <app-client-info-list></app-client-info-list>
+  </card-body>
+</craftsjs-card>

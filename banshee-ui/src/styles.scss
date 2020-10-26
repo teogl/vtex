@@ -1,0 +1,53 @@
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+@import '~@craftsjs/core/craftsjs-grid.theme';
+@import '~@angular/material/theming';
+@import './styles/_breakpoints';
+@import './styles/_variables';
+@import './styles/typography';
+@import './styles/_general';
+@import './styles/_loader';
+@import './styles/form';
+@import './styles/table';
+@import '~@craftsjs/alert/craftsjs-alert.theme';
+@import '~@craftsjs/card/craftsjs-card.theme';
+@import '~@craftsjs/notifier/craftsjs-notifier.theme';
+
+@include mat-core();
+$craftsjs-app-primary: mat-palette($mat-teal, 800);
+$craftsjs-app-accent:  mat-palette($mat-pink, 800, A100, 100);
+$craftsjs-app-warn: mat-palette($mat-red);
+$craftsjs-app-theme: mat-light-theme($craftsjs-app-primary, $craftsjs-app-accent, $craftsjs-app-warn);
+$typography: mat-typography-config(
+  $font-family: '"Karla", sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+body {
+  background-color: map-get($craftsjs-theme-variables, gray-lighter);
+  color: map-get($craftsjs-theme-variables, gray);
+  font-family: mat-font-family($typography);
+  flex: 1 0 auto;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 1em;
+  canvas {
+    width: 100%;
+  }
+}
+body.theme-default {
+    @include angular-material-theme($craftsjs-app-theme);
+    @include typography($craftsjs-theme-variables, $typography, $craftsjs-app-theme);
+    @include general($craftsjs-theme-variables);
+    @include loader($craftsjs-app-theme);
+    @include table($craftsjs-app-theme);
+    @include alert($craftsjs-theme-variables);
+    @include card($craftsjs-app-theme, $craftsjs-theme-variables);
+    @include notifier($craftsjs-app-theme, $craftsjs-theme-variables);
+
+  }

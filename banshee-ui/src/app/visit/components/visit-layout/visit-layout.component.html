@@ -1,0 +1,23 @@
+<craftsjs-card>
+  <card-header>
+    <card-header-oval>
+      <card-title>
+        <mat-icon suffix>library_books</mat-icon>
+        <h4>{{'visit.title' | translate}}</h4>
+      </card-title>
+    </card-header-oval>
+    <card-header-subtitle>
+      <button type="button" class="action-create" color="accent" mat-raised-button (click)="createVisit()">
+        <mat-icon suffix>add</mat-icon>
+        {{'visit.create' | translate}}
+      </button>
+      <a color="accent" mat-raised-button [routerLink]="['/clients']">
+        <mat-icon suffix>keyboard_backspace</mat-icon>
+        {{'general.back' | translate}}
+      </a>
+    </card-header-subtitle>
+  </card-header>
+  <card-body>
+    <app-visit-list></app-visit-list>
+  </card-body>
+</craftsjs-card>

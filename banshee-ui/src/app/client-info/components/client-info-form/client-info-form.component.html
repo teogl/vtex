@@ -1,0 +1,95 @@
+<form autocomplete="off" id="clientInfo-form" [formGroup]="formGroup" class="form-full-width" (submit)="submit()">
+  <div class="row">
+
+    <!-- nit Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input matInput [placeholder]="'clientInfo.nit' | translate" formControlName="nit" required>
+        <mat-error *ngIf="formGroup.controls.nit.invalid">
+          <span *ngIf="formGroup.controls.nit.errors.required">{{'general.required' | translate}}</span>
+          <span *ngIf="formGroup.controls.nit.errors.maxlength">{{'general.maxlength' | translate: { x: 100 } }}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- fullName Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input matInput [placeholder]="'clientInfo.fullName' | translate" formControlName="fullName" required>
+        <mat-error *ngIf="formGroup.controls.fullName.invalid">
+          <span *ngIf="formGroup.controls.fullName.errors.required">{{'general.required' | translate}}</span>
+          <span
+            *ngIf="formGroup.controls.fullName.errors.maxlength">{{'general.maxlength' | translate: { x: 100 } }}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- space Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input type="number" matInput [placeholder]="'clientInfo.space' | translate" formControlName="space" required>
+        <mat-error *ngIf="formGroup.controls.space.invalid">
+          <span *ngIf="formGroup.controls.space.errors.required">{{'general.required' | translate}}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- percentageVisits Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input type="number" matInput [placeholder]="'clientInfo.percentageVisits' | translate"
+          formControlName="percentageVisits" required>
+        <mat-error *ngIf="formGroup.controls.percentageVisits.invalid">
+          <span *ngIf="formGroup.controls.percentageVisits.errors.required">{{'general.required' | translate}}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- countryId Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <app-country-select [placeholder]="'clientInfo.countryId' | translate" formControlName="countryId">
+        </app-country-select>
+      </mat-form-field>
+    </div>
+
+    <!-- stateId Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <app-state-select [country]="formGroup.get('countryId').value" [placeholder]="'clientInfo.stateId' | translate"
+          formControlName="stateId"></app-state-select>
+      </mat-form-field>
+    </div>
+
+    <!-- cityId Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <app-city-select [countryId]="formGroup.get('countryId').value" [state]="formGroup.get('stateId').value"
+          [placeholder]="'clientInfo.cityId' | translate" formControlName="cityId"></app-city-select>
+      </mat-form-field>
+    </div>
+
+    <!-- phone Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input matInput [placeholder]="'clientInfo.phone' | translate" formControlName="phone">
+        <mat-error *ngIf="formGroup.controls.address.invalid">
+          <span
+            *ngIf="formGroup.controls.address.errors.maxlength">{{'general.maxlength' | translate: { x: 50 } }}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- address Field -->
+    <div class="col-12">
+      <mat-form-field>
+        <input matInput [placeholder]="'clientInfo.address' | translate" formControlName="address">
+        <mat-error *ngIf="formGroup.controls.address.invalid">
+          <span
+            *ngIf="formGroup.controls.address.errors.maxlength">{{'general.maxlength' | translate: { x: 200 } }}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+  </div>
+</form>

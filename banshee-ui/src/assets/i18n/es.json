@@ -1,0 +1,52 @@
+{
+  "general": {
+    "save": "Guardar",
+    "close": "Cerrar",
+    "required": "El campo es requerido",
+    "maxlength": "El campo no puede tener más de {{x}} caracteres",
+    "ok": "Ok",
+    "actions": "Acciones",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "saveSuccessFully": "Se ha guardado de forma exitosa",
+    "deletesuccessfully": "Eliminado de forma correcta",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "yes": "Si",
+    "no": "No",
+    "searcher": "Buscador",
+    "search": "Buscar",
+    "clear": "Limpiar",
+    "isEmail": "El formato no es correcto",
+    "select": "Seleccione",
+    "emptyData": "No se encontraron resultados",
+    "edit": "Editar",
+    "add": "Añadir",
+    "branchoffice": "Sede",
+    "listEmpty": "No hay datos para mostrar"
+  },
+  "clientInfo": {
+    "title": "Información de clientes",
+    "create": "Crear nuevo cliente",
+    "nit": "Nit",
+    "fullName": "Nombre completo",
+    "address": "Dirección",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "space": "Cupo",
+    "percentageVisits": "Porcentaje visitas",
+    "countryId": "País",
+    "stateId": "Departamento",
+    "cityId": "Ciudad",
+    "areYouSure": "¿Está seguro de eliminar el cliente con nit {{title}}?"
+  },
+  "visit": {
+    "title": "Visitas",
+    "create": "Crear visita",
+    "date": "Fecha",
+    "sellerId": "Vendedor",
+    "total": "Valor neto",
+    "totalVisit": "Valor visita",
+    "description": "Observaciones"
+  }
+}

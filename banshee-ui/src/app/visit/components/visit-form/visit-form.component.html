@@ -1,0 +1,46 @@
+<form autocomplete="off" id="visit-form" [formGroup]="formGroup" class="form-full-width" (submit)="submit()">
+  <div class="row">
+
+    <!-- date Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input formControlName="date" matInput [matDatepicker]="date" required
+          [placeholder]="'visit.date' | translate" (focus)="date.open()" (click)="date.open()">
+        <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+        <mat-datepicker #date></mat-datepicker>
+        <mat-error *ngIf="formGroup.controls.date.invalid">
+          <span *ngIf="formGroup.controls.date.errors.required">{{'general.required' | translate}}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- sellerId Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <app-seller-select [placeholder]="'visit.sellerId' | translate" formControlName="sellerId" required>
+        </app-seller-select>
+        <mat-error *ngIf="formGroup.controls.sellerId.invalid">
+          <span *ngIf="formGroup.controls.sellerId.errors.required">{{'general.required' | translate}}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- total Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input type="number" matInput [placeholder]="'visit.total' | translate" formControlName="total" required>
+        <mat-error *ngIf="formGroup.controls.total.invalid">
+          <span *ngIf="formGroup.controls.total.errors.required">{{'general.required' | translate}}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- description Field -->
+    <div class="col-12 col-md-6">
+      <mat-form-field>
+        <input type="text" matInput [placeholder]="'visit.description' | translate" formControlName="description">
+      </mat-form-field>
+    </div>
+
+  </div>
+</form>

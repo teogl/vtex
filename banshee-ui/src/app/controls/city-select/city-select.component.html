@@ -1,0 +1,4 @@
+<mat-select [placeholder]="'city.title' | translate" [multiple]="multiple" [disabled]="disabled" [value]="value$ | async" [required]="required"
+(selectionChange)="onChange($event)" (openedChange)="openedChange($event)">
+  <mat-option *ngFor="let city of cities$ | async" [value]="city.id">{{city.name}}</mat-option>
+</mat-select>

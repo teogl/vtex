@@ -1,0 +1,82 @@
+<div class="table-container">
+    <div class="table-loading" *ngIf="dataSource.loading$ | async">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="table-responsive-vertical" perfectScrollbar>
+        <mat-table [dataSource]="dataSource" class="table">
+
+          <!-- Actions Column -->
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+              {{'general.actions' | translate}}
+            </mat-header-cell>
+            <mat-cell class="text-light-gray" *matCellDef="let clientInfo">
+              <button mat-icon-button (click)="editClientInfo(clientInfo)">
+                <mat-icon suffix>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="deleteClientInfo(clientInfo)">
+                <mat-icon suffix>delete</mat-icon>
+              </button>
+              <a mat-icon-button [routerLink]="['/clients', clientInfo.id, 'visits']">
+                <mat-icon suffix>remove_red_eye</mat-icon>
+              </a>
+            </mat-cell>
+          </ng-container>
+            
+            <!-- 'nit' Column -->
+            <ng-container matColumnDef="nit">
+                <mat-header-cell *matHeaderCellDef>{{'clientInfo.nit' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let clientInfo" title="{{'clientInfo.nit' | translate}}"> {{clientInfo.nit}} </mat-cell>
+            </ng-container>
+            <!-- 'nit' Column -->
+            
+            <!-- 'fullName' Column -->
+            <ng-container matColumnDef="fullName">
+                <mat-header-cell *matHeaderCellDef>{{'clientInfo.fullName' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let clientInfo" title="{{'clientInfo.fullName' | translate}}"> {{clientInfo.fullName}} </mat-cell>
+            </ng-container>
+            <!-- 'fullName' Column -->
+            
+            <!-- 'address' Column -->
+            <ng-container matColumnDef="address">
+                <mat-header-cell *matHeaderCellDef>{{'clientInfo.address' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let clientInfo" title="{{'clientInfo.address' | translate}}"> {{clientInfo.address}} </mat-cell>
+            </ng-container>
+            <!-- 'address' Column -->
+            
+            <!-- 'phone' Column -->
+            <ng-container matColumnDef="phone">
+                <mat-header-cell *matHeaderCellDef>{{'clientInfo.phone' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let clientInfo" title="{{'clientInfo.phone' | translate}}"> {{clientInfo.phone}} </mat-cell>
+            </ng-container>
+            <!-- 'phone' Column -->
+            
+            <!-- 'location' Column -->
+            <ng-container matColumnDef="location">
+                <mat-header-cell *matHeaderCellDef>{{'clientInfo.location' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let clientInfo" title="{{'clientInfo.location' | translate}}"> 
+                    {{clientInfo.country?.name}} - {{clientInfo.state?.name}} - {{clientInfo.city?.name}}
+                </mat-cell>
+            </ng-container>
+            <!-- 'location' Column -->
+            
+            <!-- 'space' Column -->
+            <ng-container matColumnDef="space">
+                <mat-header-cell *matHeaderCellDef>{{'clientInfo.space' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let clientInfo" title="{{'clientInfo.space' | translate}}"> {{clientInfo.space}} </mat-cell>
+            </ng-container>
+            <!-- 'space' Column -->
+            
+            <!-- 'percentageVisits' Column -->
+            <ng-container matColumnDef="percentageVisits">
+                <mat-header-cell *matHeaderCellDef>{{'clientInfo.percentageVisits' | translate}}</mat-header-cell>
+                <mat-cell *matCellDef="let clientInfo" title="{{'clientInfo.percentageVisits' | translate}}"> {{clientInfo.percentageVisits}} </mat-cell>
+            </ng-container>
+            <!-- 'percentageVisits' Column -->
+            
+            <mat-header-row *matHeaderRowDef="dataSource.displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: dataSource.displayedColumns"></mat-row>
+        </mat-table>
+        <mat-paginator [length]="dataSource.total$ | async" [pageSize]="10" hidePageSize="true"></mat-paginator>
+    </div>
+</div>

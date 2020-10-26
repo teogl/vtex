@@ -1,0 +1,4 @@
+<mat-select [placeholder]="'seller.title' | translate" [multiple]="multiple" [disabled]="disabled" [value]="value$ | async" [required]="required"
+(selectionChange)="onChange($event)" (openedChange)="openedChange($event)">
+  <mat-option *ngFor="let seller of sellers$ | async" [value]="seller.id">{{seller.name}}</mat-option>
+</mat-select>
